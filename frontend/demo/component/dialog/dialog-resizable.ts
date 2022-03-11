@@ -45,13 +45,8 @@ export class Example extends LitElement {
         .renderer="${guard([], () => (root: HTMLElement) => {
           render(
             html`
-              <vaadin-vertical-layout
-                theme="spacing"
-                style="max-width: 100%; min-width: 300px; height: 100%; align-items: stretch;"
-              >
-                <h2 style="margin: var(--lumo-space-m) 0 0 0; font-size: 1.5em; font-weight: bold;">
-                  Employee list
-                </h2>
+              <vaadin-vertical-layout theme="spacing">
+                <h2>Employee list</h2>
                 <vaadin-grid .items="${this.people}">
                   <vaadin-grid-column path="firstName" title="First name"></vaadin-grid-column>
                   <vaadin-grid-column path="lastName" title="Last name"></vaadin-grid-column>
@@ -60,6 +55,17 @@ export class Example extends LitElement {
                   <vaadin-grid-column path="membership" title="Membership"></vaadin-grid-column>
                 </vaadin-grid>
               </vaadin-vertical-layout>
+              <style>
+                vaadin-vertical-layout {
+                  align-items: stretch;
+                  min-width: 18rem;
+                  width: 100%;
+                  height: 100%;
+                }
+                h2 {
+                  margin-top: 0;
+                }
+              </style>
             `,
             root
           );

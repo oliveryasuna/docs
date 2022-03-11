@@ -38,20 +38,11 @@ export class Example extends LitElement {
         .renderer="${guard([], () => (root: HTMLElement) => {
           render(
             html`
-              <vaadin-vertical-layout
-                style="align-items: stretch; height: 100%; max-height: 420px; width: 320px;"
-              >
-                <header
-                  class="draggable"
-                  style="border-bottom: 1px solid var(--lumo-contrast-10pct); padding: var(--lumo-space-m) var(--lumo-space-l);"
-                >
-                  <h2
-                    style="font-size: var(--lumo-font-size-xl); font-weight: 600; line-height: var(--lumo-line-height-xs); margin: 0;"
-                  >
-                    Create new employee
-                  </h2>
+              <vaadin-vertical-layout class="root">
+                <header class="header">
+                  <h2>New employee</h2>
                 </header>
-                <vaadin-scroller scroll-direction="vertical" style="padding: var(--lumo-space-l);">
+                <vaadin-scroller scroll-direction="vertical">
                   <vaadin-vertical-layout
                     aria-labelledby="personal-title"
                     role="region"
@@ -96,10 +87,20 @@ export class Example extends LitElement {
                     Cancel
                   </vaadin-button>
                   <vaadin-button theme="primary" @click="${() => (this.dialogOpened = false)}">
-                    Save
+                    Add
                   </vaadin-button>
                 </footer>
               </vaadin-vertical-layout>
+              <style>
+                .root {
+                  width: 18rem;
+                  height: 100%;
+                  max-height: 420px;
+                }
+                vaadin-scroller {
+                  padding: var(--lumo-space-l);
+                }
+              </style>
             `,
             root
           );

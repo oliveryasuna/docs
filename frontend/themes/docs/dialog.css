@@ -2,33 +2,47 @@
 
 /* tag::dialog-no-padding[] */
 .dialog-no-padding-example-overlay {
-    height: 100%;
-    max-height: 420px;
-    width: 320px;
+  height: 100%;
+  max-height: 420px;
+  width: 320px;
 }
 
 .dialog-no-padding-example-overlay header {
-    border-bottom: 1px solid var(--lumo-contrast-10pct);
-    padding: var(--lumo-space-m) var(--lumo-space-m);
+  border-bottom: 1px solid var(--lumo-contrast-10pct);
+  padding: var(--lumo-space-m) var(--lumo-space-m);
 }
 
 .dialog-no-padding-example-overlay h2 {
-    margin: 0;
-    font-size: var(--lumo-font-size-xl);
-    font-weight: 600;
-    line-height: var(--lumo-line-height-xs);
+  margin: 0;
+  font-size: var(--lumo-font-size-xl);
+  font-weight: 600;
+  line-height: var(--lumo-line-height-xs);
 }
 
 .dialog-no-padding-example-overlay h3 {
-    font-size: var(--lumo-font-size-l);
-    font-weight: 600;
-    line-height: var(--lumo-line-height-xs);
-    margin: 0 0 var(--lumo-space-s) 0
+  font-size: var(--lumo-font-size-l);
+  font-weight: 600;
+  line-height: var(--lumo-line-height-xs);
+  margin: 0 0 var(--lumo-space-s) 0;
 }
 
 .dialog-no-padding-example-overlay footer {
-    background-color: var(--lumo-contrast-5pct);
-    padding: var(--lumo-space-s) var(--lumo-space-m);
-    text-align: right;
+  background-color: var(--lumo-contrast-5pct);
+  padding: var(--lumo-space-s) var(--lumo-space-m);
+  text-align: right;
 }
 /* end::dialog-no-padding[] */
+
+/* Vaadin.com styles are leaking into the dialog contents, reset those */
+vaadin-dialog-overlay h2,
+vaadin-dialog-overlay h3 {
+  margin-top: 0;
+  color: var(--lumo-header-text-color);
+  font-family: var(--lumo-font-family);
+  font-weight: 600;
+  line-height: var(--lumo-line-height-xs);
+}
+
+vaadin-dialog-overlay .header h2 {
+  margin: 0;
+}

@@ -34,24 +34,27 @@ export class Example extends LitElement {
         .renderer="${guard([], () => (root: HTMLElement) => {
           render(
             html`
-              <vaadin-vertical-layout
-                theme="spacing"
-                style="width: 300px; max-width: 100%; align-items: stretch;"
-              >
-                <h2 style="margin: var(--lumo-space-m) 0; font-size: 1.5em; font-weight: bold;">
-                  System maintenance
-                </h2>
+              <vaadin-vertical-layout>
+                <h2>System maintenance</h2>
                 <p>
                   System maintenance will begin at 3 PM. It is schedule to conclude at 5PM. We
                   apologise for any inconvenience.
                 </p>
-                <vaadin-button
-                  @click="${() => (this.dialogOpened = false)}"
-                  style="align-self: flex-end;"
-                >
-                  Close
-                </vaadin-button>
+                <vaadin-button @click="${() => (this.dialogOpened = false)}">Close</vaadin-button>
               </vaadin-vertical-layout>
+              <style>
+                vaadin-vertical-layout {
+                  align-items: stretch;
+                  width: 18rem;
+                  max-width: 100%;
+                }
+                h2 {
+                  margin-top: 0;
+                }
+                vaadin-button {
+                  align-self: flex-end;
+                }
+              </style>
             `,
             root
           );

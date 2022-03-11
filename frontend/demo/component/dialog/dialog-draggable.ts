@@ -30,6 +30,7 @@ export class Example extends LitElement {
       <!-- tag::snippet[] -->
       <vaadin-dialog
         aria-label="Add note"
+        theme="no-padding"
         draggable
         modeless
         .opened="${this.dialogOpened}"
@@ -37,21 +38,13 @@ export class Example extends LitElement {
         .renderer="${guard([], () => (root: HTMLElement) => {
           render(
             html`
-              <vaadin-vertical-layout
-                theme="spacing"
-                style="width: 300px; max-width: 100%; align-items: stretch;"
-              >
-                <vaadin-horizontal-layout
-                  class="draggable"
-                  style="border-bottom: 1px solid var(--lumo-contrast-20pct); cursor: move; padding: var(--lumo-space-m) var(--lumo-space-l); margin: calc(var(--lumo-space-s) * -1) calc(var(--lumo-space-l) * -1) 0"
-                >
-                  <h2 style="margin: 0; font-size: 1.5em; font-weight: bold;">Add note</h2>
-                </vaadin-horizontal-layout>
-                <vaadin-vertical-layout style="align-items: stretch;">
-                  <vaadin-text-field label="Title"></vaadin-text-field>
-                  <vaadin-text-area label="Description"></vaadin-text-area>
-                </vaadin-vertical-layout>
-                <vaadin-horizontal-layout theme="spacing" style="justify-content: flex-end">
+              <div class="header draggable">
+                <h2>Add note</h2>
+              </div>
+              <vaadin-vertical-layout theme="spacing padding">
+                <vaadin-text-field label="Title"></vaadin-text-field>
+                <vaadin-text-area label="Description"></vaadin-text-area>
+                <vaadin-horizontal-layout theme="spacing">
                   <vaadin-button @click="${() => (this.dialogOpened = false)}">
                     Cancel
                   </vaadin-button>
@@ -60,6 +53,25 @@ export class Example extends LitElement {
                   </vaadin-button>
                 </vaadin-horizontal-layout>
               </vaadin-vertical-layout>
+              <style>
+                vaadin-vertical-layout {
+                  align-items: stretch;
+                  width: 18rem;
+                  max-width: 100%;
+                }
+                .header {
+                  cursor: move;
+                  border-bottom: 1px solid var(--lumo-contrast-20pct);
+                  padding: var(--lumo-space-m) var(--lumo-space-l);
+                }
+                h2 {
+                  margin: 0;
+                }
+                vaadin-horizontal-layout {
+                  justify-content: flex-end;
+                  margin-top: var(--lumo-space-m);
+                }
+              </style>
             `,
             root
           );
