@@ -37,6 +37,7 @@ public class DateTimePickerCustomValidation extends Div {
         // end::snippet[]
     }
 
-    public static class Exporter extends DemoExporter<DateTimePickerCustomValidation> { // hidden-source-line
+    public static class Exporter // hidden-source-line
+            extends DemoExporter<DateTimePickerCustomValidation> { // hidden-source-line
     } // hidden-source-line
 }
